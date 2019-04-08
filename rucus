@@ -1,0 +1,309 @@
+import React, { Component } from "react";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
+  TextInput
+} from "react-native";
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <View style={mydesign.main}>
+        {this.props.visit !== ""
+          ? this.props.visit
+          : () => {
+              <View>
+                <View>
+                  <Text style={mydesign.headerTxt}>My Notes</Text>
+                </View>
+                <TextInput
+                  value={this.props.newtext.text}
+                  onChangeText={val => {
+                    this.setState({ text: val });
+                  }}
+                  style={mydesign.inputbox}
+                  multiline={true}
+                  placeholder={"enter note here"}
+                  returnKeyType="done"
+                />
+                <View>
+                  {this.props.thenotes.map((note, index) => {
+                    return (
+                      <Text key={index} style={mydesign.notetxt}>
+                        {" "}
+                        {note}{" "}
+                      </Text>
+                    );
+                  })}{" "}
+                  : (
+                  <View style={{ right: 2 }}>
+                    <View style={mydesign.main}>
+                      <Text style={mydesign.headerTxt}>My Notes</Text>
+                    </View>
+                    <View>
+                      <Text style={mydesign.first}>Nothing to display</Text>
+                    </View>
+
+                    <TouchableOpacity
+                      style={mydesign.firstbtn}
+                      
+                      })}
+                    >
+                      <Text
+                        style={{
+                          alignSelf: "center",
+                          top: 10,
+                          color: "white",
+                          fontSize: 18
+                        }}
+                      >
+                        Add Note
+                      </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={mydesign.secondbtn}>
+                      <Text
+                        style={{
+                          alignSelf: "center",
+                          top: 10,
+                          color: "white",
+                          fontSize: 18
+                        }}
+                      >
+                        See Quotes
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                  )
+                </View>
+              </View>;
+            }}
+      </View>
+    );
+  }
+}
+
+const mydesign = StyleSheet.create({
+  main: {
+    flex: 1,
+    borderLeftWidth: 3,
+    borderLeftColor: "#f0fc"
+  },
+  headerTxt: {
+    fontSize: 40,
+    color: "white",
+    backgroundColor: "purple",
+    fontWeight: "bold",
+    borderBottomWidth: 2,
+    borderBottomColor: "transparent",
+    paddingTop: 10
+  },
+  btn: {
+    position: "absolute",
+    bottom: 40,
+    right: 50,
+    width: 60,
+    height: 60,
+    backgroundColor: "purple",
+    borderRadius: 30
+  },
+  btntxt: {
+    alignSelf: "center",
+    top: 2,
+    color: "white",
+    fontSize: 45
+  },
+  inputbox: {
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "#f0f",
+    height: 50,
+    borderBottomColor: "purple",
+    borderBottomWidth: 3,
+    borderLeftColor: "green",
+    borderLeftWidth: 3,
+    borderWidth: 1,
+    fontSize: 15
+  },
+  notetxt: {
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "#f0f",
+    height: 40,
+    width: 248,
+    borderBottomColor: "purple",
+    borderBottomWidth: 3,
+    borderLeftColor: "green",
+    borderLeftWidth: 3,
+    borderWidth: 1,
+    fontSize: 15,
+    backgroundColor: "transparent",
+    borderRadius: 10
+  },
+  first: {
+    fontSize: 40,
+    top: 250,
+    alignSelf: "center"
+  },
+  firstbtn: {
+    top: 450,
+    left: 270,
+    backgroundColor: "purple",
+    borderRadius: 16,
+    width: 90,
+    height: 40
+  },
+  secondbtn: {
+    top: 410,
+    left: 4,
+    backgroundColor: "purple",
+    borderRadius: 16,
+    width: 90,
+    height: 40
+  }
+});
+========================================================================================================================
+    import React, { Component } from 'react';
+    import { TouchableOpacity, StyleSheet, Text, View, TextInput } from 'react-native';
+
+
+    export default class App extends Component {
+
+        constructor(props){
+            super(props)
+        }
+    
+
+        render(){
+            return(
+            <View style = {mydesign.main}>{
+                this.props.visit !== ''? this.props.visit:()=>{
+                    <View>
+                        <View>
+                            <Text style={mydesign.headerTxt}>My Notes</Text>
+                        </View>
+                        <TextInput value={this.props.newtext.text} onChangeText={(val) => { this.setState({ text: val }) }} style={mydesign.inputbox} multiline={true}
+                            placeholder={'enter note here'} returnKeyType='done'>
+                            </TextInput>
+                            <View >
+                            {this.props.thenotes.map((note, index) => {
+                                return ( 
+                                <Text key={index} style={mydesign.notetxt}> {note} </Text>
+                                        )
+                                })}  :   (
+                                <View style ={{right:2}}>
+            <View style={mydesign.main}>
+            <Text style={mydesign.headerTxt}>My Notes</Text>
+            </View>
+            <View>
+                <Text style={mydesign.first}>Nothing to display</Text>
+            </View> 
+            
+        <TouchableOpacity style= {mydesign.firstbtn} onPress = {this.setState({function() {
+           return(this.props.visit !=='') 
+        }})}>
+            <Text style={{alignSelf: 'center',top: 10,color:'white',fontSize: 18}}>Add Note</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style= {mydesign.secondbtn}>
+            <Text style={{alignSelf: 'center',top: 10,color:'white',fontSize: 18}}>See Quotes</Text>
+        </TouchableOpacity>
+            </View>
+                                )
+                            </View>
+                    </View>
+                    
+                }
+            }</View>
+                
+    
+    
+            )
+        }
+
+    }
+
+    const mydesign = StyleSheet.create({
+        main: {
+        flex: 1,
+        borderLeftWidth: 3,
+        borderLeftColor: '#f0fc'
+        },
+        headerTxt: {
+        fontSize: 40,
+        color: 'white',
+        backgroundColor: 'purple',
+        fontWeight: 'bold',
+        borderBottomWidth: 2,
+        borderBottomColor: 'transparent',
+        paddingTop: 10
+        },
+        btn: {
+        position: 'absolute',
+        bottom: 40,
+        right: 50,
+        width: 60,
+        height: 60,
+        backgroundColor: 'purple',
+        borderRadius: 30,
+        },
+        btntxt: {
+        alignSelf: 'center',
+        top: 2,
+        color: 'white',
+        fontSize: 45
+        },
+        inputbox: {
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#f0f',
+        height: 50,
+        borderBottomColor: 'purple',
+        borderBottomWidth: 3,
+        borderLeftColor: 'green',
+        borderLeftWidth: 3,
+        borderWidth: 1,
+        fontSize: 15,
+        
+        },
+        notetxt:{
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#f0f',
+        height: 40,
+        width: 248,
+        borderBottomColor: 'purple',
+        borderBottomWidth: 3,
+        borderLeftColor: 'green',
+        borderLeftWidth: 3,
+        borderWidth: 1,
+        fontSize: 15,
+        backgroundColor:'transparent',
+        borderRadius: 10,
+        },
+        first: {
+            fontSize:40,
+            top:250,
+            alignSelf: 'center',
+          },
+          firstbtn:{
+            top:450,
+            left:270,
+            backgroundColor: 'purple',
+            borderRadius: 16,
+            width: 90,
+            height:40, 
+          },
+          secondbtn:{
+            top:410,
+            left:4,
+            backgroundColor: 'purple',
+            borderRadius: 16,
+            width: 90,
+            height:40,
+          }
+    })
